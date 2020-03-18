@@ -13,7 +13,7 @@ module.exports = {
     find: async ( req, res ) => {
         const appointments = await Appointments.find().populate('patient');
 
-        console.log(appointments);
+        // console.log(appointments);
         
 
         for (let i = 0; i < appointments.length; i++) {
@@ -36,7 +36,7 @@ module.exports = {
                     "lugar" : appointments[i].address,
                 })
 
-                console.log(sendWp);
+                // console.log(sendWp);
             }else {
 
                 console.log(appointments);
