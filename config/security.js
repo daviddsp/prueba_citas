@@ -34,6 +34,15 @@ module.exports.security = {
   //   allowCredentials: false,
   // },
 
+  cors: {
+    allRoutes: true,
+    allowOrigins: ['http://localhost:1340', 'http://35.226.61.147'],
+    allowCredentials: true,
+    allowRequestMethods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+    allowAnyOriginWithCredentialsUnsafe: true
+  },
+
+
 
   /****************************************************************************
   *                                                                           *

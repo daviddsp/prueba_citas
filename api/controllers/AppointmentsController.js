@@ -24,7 +24,7 @@ module.exports = {
             if (diff > 3){
 
                 
-                const sendWp = await axios.post('https://send-mail-aws.herokuapp.com/api/send-mail', 
+                const sendWp = await axios.post('https://mails-as.herokuapp.com/api/send-mail', 
                 {
                     "template" : "FALP",
                     "email" : "leovalenz28@gmail.com",
@@ -46,7 +46,7 @@ module.exports = {
                 })
                 
 
-                console.log(sendWp);
+                // console.log(sendWp);
                 
 
                 // const sendSMS = await axios({
