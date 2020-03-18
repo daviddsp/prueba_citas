@@ -20,7 +20,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  // 'POST /find': 'AppointmentsController.find',
+  'GET /find': 'AppointmentsController.find',
 
 
   /***************************************************************************
