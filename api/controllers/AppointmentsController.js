@@ -11,9 +11,9 @@ const axios = require('axios')
 module.exports = {
 
     find: async ( req, res ) => {
-        const appointments = await Appointments.find({ date_apoiment: req.query.date }).populate('patient');
+        const appointments = await Appointments.find().populate('patient');
 
-        // console.log(appointments);
+        console.log(appointments);
         
 
         for (let i = 0; i < appointments.length; i++) {
@@ -23,11 +23,11 @@ module.exports = {
 
             if (diff > 3){
 
-                const msj = `${appointments[i].patient.name} tienes una cita ${appointments[i].prefix} ${appointments[i].name_doc} el ${appointments[i].date_apoiment} a las ${appointments[i].hour_cita} Confirmar en este enlace https://tinyurl.com/sqs7q65`
+                
                 const sendWp = await axios.post('https://send-mail-aws.herokuapp.com/api/send-mail', 
                 {
                     "template" : "FALP",
-                    "email" : appointments[i].patient.email,
+                    "email" : "leovalenz28@gmail.com",
                     "name" : appointments[i].patient.name,
                     "fecha" : appointments[i].date_apoiment,
                     "hora" : appointments[i].hour_cita,
@@ -38,14 +38,12 @@ module.exports = {
 
                 console.log(sendWp);
             }else {
+                const msj = `${appointments[i].patient.name} tienes una cita ${appointments[i].prefix} ${appointments[i].name_doc} el ${appointments[i].date_apoiment} a las ${appointments[i].hour_cita} Confirmar en este enlace https://tinyurl.com/sqs7q65`
 
-                // console.log(appointments);
-                
-
-                // const sendWp = await axios.post('https://send-sms-aws.herokuapp.com/api/send-msj/', {
-                //     "number": '56956723430', 
-                //     "msj": "hola"
-                // })
+                const sendWp = await axios.post('https://sms-send-aws.herokuapp.com/api/send-msj/', {
+                    "number": '56956723430', 
+                    "msj": msj
+                })
                 
 
                 console.log(sendWp);
