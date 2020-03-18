@@ -76,6 +76,8 @@ module.exports = {
             
             
         }
+        return res.send('Enviado!');
+
 
         res.json({mensaje: 'enviado'})
         // appointments.forEach(appointment => {
