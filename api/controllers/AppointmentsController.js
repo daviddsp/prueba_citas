@@ -38,6 +38,9 @@ module.exports = {
 
                 console.log(sendWp);
             }else {
+
+                console.log(appointments);
+                
                 const msj = `${appointments[i].patient.name} tienes una cita ${appointments[i].prefix} ${appointments[i].name_doc} el ${appointments[i].date_apoiment} a las ${appointments[i].hour_cita} Confirmar en este enlace https://tinyurl.com/sqs7q65`
 
                 const sendWp = await axios.post('https://sms-send-aws.herokuapp.com/api/send-msj/', {
