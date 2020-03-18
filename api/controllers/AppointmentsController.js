@@ -18,7 +18,7 @@ module.exports = {
             const date_apoiment = moment(appointments[i].date_apoiment, 'YYYY-MM-DD');
             const diff = moment(date_apoiment).diff(moment().format('YYYY-MM-DD'), 'days');
 
-            if (diff > 3){
+            if (diff >= 3){
 
                 const sendWp = await axios.post('https://mails-as.herokuapp.com/api/send-mail', 
                 {
