@@ -76,6 +76,8 @@ module.exports = {
             
             
         }
+
+        res.json({mensaje: 'enviado'})
         // appointments.forEach(appointment => {
         //     const date_apoiment = moment(appointment.date_apoiment, 'YYYY-MM-DD');
         //     const diff = moment(date_apoiment).diff(moment().format('YYYY-MM-DD'), 'days');
