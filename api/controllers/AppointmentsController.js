@@ -24,7 +24,7 @@ module.exports = {
             if (diff > 3){
 
                 const msj = `${appointments[i].patient.name} tienes una cita ${appointments[i].prefix} ${appointments[i].name_doc} el ${appointments[i].date_apoiment} a las ${appointments[i].hour_cita} Confirmar en este enlace https://tinyurl.com/sqs7q65`
-                const sendWp = await axios.post('https://send-mail-ms.herokuapp.com/api/send-mail', 
+                const sendWp = await axios.post('https://send-mail-aws.herokuapp.com/api/send-mail', 
                 {
                     "template" : "FALP",
                     "email" : appointments[i].patient.email,
@@ -35,8 +35,6 @@ module.exports = {
                     "doctor" : appointments[i].name_doc,
                     "lugar" : appointments[i].address,
                 })
-
-                res.json(sendWp)
 
                 console.log(sendWp);
             }else {
