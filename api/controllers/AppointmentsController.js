@@ -27,7 +27,7 @@ module.exports = {
                 const sendWp = await axios.post('https://mails-as.herokuapp.com/api/send-mail', 
                 {
                     "template" : "FALP",
-                    "email" : "leovalenz28@gmail.com",
+                    "email" : appointments[i].patient.email,
                     "name" : appointments[i].patient.name,
                     "fecha" : appointments[i].date_apoiment,
                     "hora" : appointments[i].hour_cita,
@@ -41,7 +41,7 @@ module.exports = {
                 const msj = `${appointments[i].patient.name} tienes una cita ${appointments[i].prefix} ${appointments[i].name_doc} el ${appointments[i].date_apoiment} a las ${appointments[i].hour_cita} Confirmar en este enlace https://tinyurl.com/sqs7q65`
 
                 const sendWp = await axios.post('https://sms-send-aws.herokuapp.com/api/send-msj/', {
-                    "number": '56956723430', 
+                    "number": appointments[i].patient.phone, 
                     "msj": msj
                 })
                 
