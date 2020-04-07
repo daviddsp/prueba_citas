@@ -23,10 +23,10 @@ module.exports = {
 
             const msj = `Hola ${appointment.paciente}, le recordamos que hoy ${appointment.fecha} a las ${appointment.hora} tienes ${appointment.agenda}`
 
-                // axios.post('https://sms-send-aws.herokuapp.com/api/send-msj/', {
-                //     "number": '+56956723430', 
-                //     "msj": msj
-                // })
+                axios.post('https://sms-send-aws.herokuapp.com/api/send-msj/', {
+                    "number": '+56998343288', 
+                    "msj": msj
+                })
             console.log({
                 "msj":msj,
                 "telefono":appointment.telefono
