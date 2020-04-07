@@ -13,32 +13,18 @@ module.exports = {
 
         const appointments = await Appoiment.find()
 
-        console.log(appointments);
-        
-        
-
         const result = appointments.map(async(appointment) => {
-
-            console.log(appointment.id);
 
             const msj = `Hola ${appointment.paciente}, le recordamos que hoy ${appointment.fecha} a las ${appointment.hora} tienes ${appointment.agenda}`
 
                 axios.post('https://sms-send-aws.herokuapp.com/api/send-msj/', {
-                    "number": '+56998343288', 
+                    "number": appointment.telefono, 
                     "msj": msj
                 })
-            console.log({
-                "msj":msj,
-                "telefono":appointment.telefono
-            });
-            
         })
 
-        
-        
+        return res.send('Enviado!');
 
     }
-  
-
 };
 
