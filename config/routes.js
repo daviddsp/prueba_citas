@@ -21,6 +21,7 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   'GET /find': 'AppointmentsController.find',
+  'GET /send': 'AppoimentController.find',
 
 
   /***************************************************************************

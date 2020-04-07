@@ -36,7 +36,7 @@ module.exports = {
                 const msj = `${appointments[i].patient.name} tienes una cita ${appointments[i].prefix} ${appointments[i].name_doc} el ${appointments[i].date_apoiment} a las ${appointments[i].hour_cita} Confirmar en este enlace https://api.whatsapp.com/send?phone=+14155238886&text=Hola`
 
                 const sendWp = await axios.post('https://sms-send-aws.herokuapp.com/api/send-msj/', {
-                    "number": appointments[i].patient.phone, 
+                    "number":`+56${appointments[i].patient.phone}`, 
                     "msj": msj
                 })
             }
